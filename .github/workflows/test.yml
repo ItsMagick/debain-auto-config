@@ -1,0 +1,17 @@
+name: Test Playbook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Ansible
+        run: sudo apt update && sudo apt install -y ansible
+      - name: Run Playbook
+        run: ansible-playbook -i inventory/hosts playbooks/main.yml
+

@@ -1,0 +1,12 @@
+- name: Install gnome shell extension installer
+  become: yes
+  get_url:
+    url: https://raw.githubusercontent.com/brunelli/gnome-shell-extension-installer/master/gnome-shell-extension-installer
+    dest: /usr/local/bin/gnome-shell-extension-installer
+    mode: '0755'
+
+- name: Install GNOME Shell Extensions
+  shell: |
+    gnome-shell-extension-installer {{ item }} --yes
+  loop:
+    - {{gnome_extensions}} 

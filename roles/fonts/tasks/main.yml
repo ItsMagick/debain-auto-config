@@ -1,0 +1,9 @@
+- name: Install fonts
+  become: no
+  get_url: 
+    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip 
+    dest: ~/.local/share/fonts/
+
+- name: Unpack nerd-font
+  become: no
+  shell: cd ~/.local/share/fonts/ && unzip FiraCode.zip

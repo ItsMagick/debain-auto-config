@@ -1,0 +1,8 @@
+- name: Install apt packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: "{{ apt_packages }}"
+

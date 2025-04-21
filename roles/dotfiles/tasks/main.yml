@@ -1,0 +1,5 @@
+- name: Run dotfiles install script
+  shell: "chezmoi init --apply --verbose https://github.com/ItsMagick/dotfiles"
+  args:
+    chdir: "{{ ansible_env.HOME }}/dotfiles"
+

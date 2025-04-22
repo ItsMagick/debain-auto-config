@@ -1,6 +1,10 @@
 ---
 - name: Install chezmoi
   ansible.builtin.shell: sh -c "$(curl -fsLS get.chezmoi.io)"
+  changed_when: true
+
+- name: Move chezmoi to .local
+  ansible.builtin.command: mv bin/chezmoi ~/.local/bin/
   changed_when: false
 
 - name: Run dotfiles install script

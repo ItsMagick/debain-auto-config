@@ -1,6 +1,5 @@
 ---
 - hosts: local
-  become: true
   roles:
     - packages
     - extensions

@@ -1,4 +1,6 @@
 ---
+- name: Create fonts dir if not present 
+  ansible.builtin.command: mkdir -p ~/.local/share/fonts
 - name: Install fonts
   ansible.builtin.get_url:
     url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip

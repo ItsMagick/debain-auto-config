@@ -4,12 +4,13 @@
     url: https://raw.githubusercontent.com/brunelli/gnome-shell-extension-installer/master/gnome-shell-extension-installer
     dest: /usr/bin/gnome-shell-extension-installer
     mode: '0755'
-
-- name: Install GNOME Shell Extensions
-  ansible.builtin.command: gnome-shell-extension-installer {{ item }} --yes
-  loop:
-    - "{{ gnome_extensions }}"
-  changed_when: false
+      
+      # FIXME: Find a way to ignore shell version and just install it like with extension manager
+      #- name: Install GNOME Shell Extensions
+      #  ansible.builtin.command: gnome-shell-extension-installer {{ item }} --yes
+      #  loop:
+      #  - "{{ gnome_extensions }}"
+      #  changed_when: false
 
 - name: Configure GNOME Extensions via dconf
   vars:

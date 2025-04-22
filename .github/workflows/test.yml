@@ -10,8 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Create venv
+        run: python3 -m venv venv
+      - name: source venv
+        run: source ./venv/bin/activate
       - name: Install Ansible
-        run: sudo apt update && sudo apt install -y ansible
+        run: pip install ansible
       - name: Run Playbook
         run: ansible-playbook -i inventory/hosts playbooks/main.yml
 

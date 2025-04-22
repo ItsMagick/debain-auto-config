@@ -1,14 +1,19 @@
 ---
 - name: Install gnome shell extension installer
-  become: yes
-  get_url:
+  ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/brunelli/gnome-shell-extension-installer/master/gnome-shell-extension-installer
-    dest: /usr/local/bin/gnome-shell-extension-installer
+    dest: /usr/bin/gnome-shell-extension-installer
     mode: '0755'
 
 - name: Install GNOME Shell Extensions
-  shell: |
-    gnome-shell-extension-installer {{ item }} --yes
+  ansible.builtin.command: gnome-shell-extension-installer {{ item }} --yes
   loop:
-    - "{{gnome_extensions}}"
+    - "{{ gnome_extensions }}"
+  changed_when: false
 
+- name: Configure GNOME Extensions via dconf
+  vars:
+    conf_path: "configs/extensions.conf"
+    gnome_path: "/org/gnome/shell/extensions"
+  ansible.builtin.shell: dconf load {{ gnome_path }} < {{ conf_path }}
+  changed_when: false

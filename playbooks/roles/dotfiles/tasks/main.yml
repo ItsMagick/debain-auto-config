@@ -1,6 +1,8 @@
 ---
-- name: Run dotfiles install script
-  shell: "chezmoi init --apply --verbose https://github.com/ItsMagick/dotfiles"
-  args:
-    chdir: "{{ ansible_env.HOME }}/dotfiles"
+- name: Install chezmoi
+  ansible.builtin.shell: sh -c "$(curl -fsLS get.chezmoi.io)"
+  changed_when: false
 
+- name: Run dotfiles install script
+  ansible.builtin.command: chezmoi init --apply --verbose https://github.com/ItsMagick/dotfiles
+  changed_when: false

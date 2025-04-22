@@ -1,9 +1,7 @@
 ---
 - name: Install apt packages
-  become: yes
-  apt:
+  become: true
+  ansible.builtin.apt:
     name: "{{ item }}"
-    state: present
-    update_cache: yes
+    update_cache: true
   loop: "{{ apt_packages }}"
-

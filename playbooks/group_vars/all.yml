@@ -2,7 +2,6 @@
 apt_packages:
   - wireshark
 gnome_extensions:
-  - 1460
   - 4481
   - 1287
   - 4356

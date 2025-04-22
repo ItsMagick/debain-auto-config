@@ -10,4 +10,5 @@
   shell: |
     gnome-shell-extension-installer {{ item }} --yes
   loop:
-    - {{gnome_extensions}} 
+    - "{{gnome_extensions}}"
+

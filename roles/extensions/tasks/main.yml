@@ -1,3 +1,4 @@
+---
 - name: Install gnome shell extension installer
   become: yes
   get_url:

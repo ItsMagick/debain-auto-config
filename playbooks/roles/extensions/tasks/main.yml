@@ -14,7 +14,6 @@
 
 - name: Configure GNOME Extensions via dconf
   vars:
-    conf_path: "configs/extensions.conf"
     gnome_path: "/org/gnome/shell/extensions"
-  ansible.builtin.shell: dconf load {{ gnome_path }} < {{ conf_path }}
+  ansible.builtin.shell: dconf load {{ gnome_path }} < {{ playbook_dir }}../configs/extensions.conf
   changed_when: false

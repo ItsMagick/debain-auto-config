@@ -1,0 +1,15 @@
+---
+- name: Download lates kubectl 
+  ansible.builtin.command: curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  mode: 0755
+- name: Install kubectl
+  ansible.builtin.command: mv kubectl /usr/local/bin/
+- name: Test kubectl Installation
+  ansible.builtin.command: kubectl version --client
+  register: kubectl_version
+- name: Download latest minikube
+  ansible.builtin.command: curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+- name: Install minikube
+  ansible.builtin.command: install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+- name: Create alias for minikube
+  ansible.builtin.command: echo 'alias kubectl="minikube kubectl "' >> ~/.zshrc

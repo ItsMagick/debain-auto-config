@@ -1,6 +1,47 @@
 ---
 apt_packages:
+  - alacritty
+  - automake
+  - binwalk
+  - btop
+  - bubblewrap
+  - build-essential
+  - cmake
+  - gobuster
+  - i2c-tools
+  - inotify-tools
+  - john
+  - keepassxc
+  - ldd
+  - make
+  - ninja-build
+  - nvim
+  - openvpn
+  - proxychains
+  - qemu
+  - qemu-system-arm
+  - qemu-system-x86
+  - qemu-user-static
+  - sed
+  - software-properties-common
+  - steghide
+  - stegseek
+  - strace
+  - tar
+  - tcpdump
+  - tesseract-ocr
+  - thunderbird
+  - tmux
+  - vim
+  - wget
+  - wine
+  - wireguard
   - wireshark
+  - xclip
+  - xz-utils
+  - zsh
+flatpack_packages:
+
 gnome_extensions:
   - 4481
   - 1287

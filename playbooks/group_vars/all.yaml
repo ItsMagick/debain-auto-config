@@ -7,6 +7,7 @@ apt_packages:
   - bubblewrap
   - build-essential
   - cmake
+  - flatpak
   - gobuster
   - i2c-tools
   - inotify-tools
@@ -41,7 +42,11 @@ apt_packages:
   - xz-utils
   - zsh
 flatpack_packages:
-
+  - tor
+  - org.torproject.torbrowser-launcher
+  - org.onionshare.OnionShare
+  - com.discordapp.Discord
+  - com.spotify.Client
 gnome_extensions:
   - 4481
   - 1287

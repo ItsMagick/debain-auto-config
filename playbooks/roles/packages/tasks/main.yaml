@@ -1,9 +1,9 @@
 ---
 - name: Install apt packages
-  include_tasks: apt.yaml
+  ansible.builtin.include_tasks: apt.yaml
 
 - name: Install Docker
-  include_tasks: docker.yaml
+  ansible.builtin.include_tasks: docker.yaml
 
 - name: Install Kubernetes
-  include_tasks: kubernetes.yaml
+  ansible.builtin.include_tasks: kubernetes.yaml
